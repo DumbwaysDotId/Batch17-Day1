@@ -13,6 +13,8 @@ import { render } from '@testing-library/react';
 //       return(
 //         <div className="App-header">
 //           <p>Selamat datang batch {this.getBatch()} di {companyName}</p>
+
+//           <button onClick = {() => alert("Hallo Siswa dan Siswi Bootcamp DumbWays.id B#17")} > Click Me Pliss </button>
 //         </div>
 //       )
 //     }
@@ -23,13 +25,13 @@ function Content(){
     function getBatch(){
         return 15+2;
     }
-
     const companyName = "DumbWays.id";
-
 
     return(
         <div className="App-header">
-            <p>Selamat datang batch {getBatch()} di {companyName    }</p>
+            <p>Selamat datang batch {getBatch()} di {companyName}</p>
+
+            <button onClick = {() => alert(`Hallo Siswa dan Siswi Bootcamp ${companyName} ${getBatch()}`)} > Click Me Pliss </button>
         </div>
     )
 }
