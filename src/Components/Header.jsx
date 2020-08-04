@@ -1,21 +1,21 @@
 import React, {Component} from 'react'
 
-// class Header extends Component {
-//     render(){
-//       return(
-//         <div>
-//           <h1>Ini headers Guys</h1>
-//         </div>
-//       )
-//     }
-//   }
-
-function Header(){
-    return(
+class Header extends Component {
+    render(){
+      return(
         <div>
-            <h1>Ini Header dengan Func</h1>
+          <h1>{this.props.title}</h1>
         </div>
-    )
-}
+      )
+    }
+  }
+
+// function Header(props){
+//     return(
+//         <div>
+//             <h1>{props.title}</h1>
+//         </div>
+//     )
+// }
 
   export default Header
