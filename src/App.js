@@ -10,6 +10,7 @@ import Todos from './Pages/Todos';
 import Internal from './Pages/Internal';
 import ListArray from './Pages/listArray';
 import ListObject from './Pages/listObject';
+import UseBootstrap from './Pages/useBootstrap';
 
 // class App extends Component{
 //   render(){
@@ -34,6 +35,7 @@ function PrivatePage(){
       <Internal />
       <ListArray />
       <ListObject />
+      <UseBootstrap />
       {/* <Test /> */}
     </div>
   )
