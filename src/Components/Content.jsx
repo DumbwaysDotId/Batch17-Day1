@@ -1,5 +1,12 @@
 import React,{Component} from 'react';
+import {Link} from 'react-router-dom';
 import '../App.css';
+
+import ListProps from '../Pages/ListProps';
+import Internal from '../Pages/Internal';
+import ListArray from '../Pages/listArray';
+import ListObject from '../Pages/listObject';
+import UseBootstrap from '../Pages/useBootstrap';
 
 class Content extends Component {
     getBatch(){
@@ -18,6 +25,13 @@ class Content extends Component {
         &nbsp;&nbsp;&nbsp;
 
           <button onClick = {() => alert("Hallo Siswa dan Siswi Bootcamp DumbWays.id B#17")} > Click Me Pliss </button>
+
+          <Link to ="/ListObject"> <button> List Object </button> </Link>
+
+        <ListProps />
+        <Internal />
+        <ListArray />
+        <UseBootstrap />
         </div>
       )
     }

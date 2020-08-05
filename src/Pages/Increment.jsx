@@ -1,6 +1,5 @@
 import React, {Component, useState} from 'react';
 import '../App.css'
-import Header from '../Components/Header';
 
 // class Increment extends Component{
 //     constructor(){
@@ -31,11 +30,11 @@ function Increment(){
     const [counter, setCounter] = useState(100)
 
     return(
-        <div className="App">
+        <div className="App-header">
             <p>Click th button to increment ! !</p>
                 &nbsp;&nbsp;&nbsp;
 
-            <Header propertiku={counter}/>
+            <p>{counter}</p>
 
                  &nbsp;&nbsp;&nbsp;
 

@@ -1,82 +1,104 @@
-import React,{Component, useState} from 'react';
+import React,{useState, Component} from 'react';
 import './App.css';
 
-import Header from './Components/Header';
-import Content from './Components/Content';
-import Test from './Pages/Test';
-import ListProps from './Pages/ListProps';
-import Increment from './Pages/Increment';
+//Import Setup Router
+import {
+  BrowserRouter as Router,
+  Switch,
+  Link,
+  Route,
+  Redirect
+} from 'react-router-dom';
+
+
+//Import Pages To Routing
+import PrivatePages from './Pages/PrivatePage';
 import Todos from './Pages/Todos';
-import Internal from './Pages/Internal';
-import ListArray from './Pages/listArray';
+import Increment from './Pages/Increment';
 import ListObject from './Pages/listObject';
-import UseBootstrap from './Pages/useBootstrap';
 
-// class App extends Component{
-//   render(){
+class App extends Component {
+    render(){
+      return(
+        <Router>
+          <div className="App">
+            <nav>
+                <ul>
+                  <li><Link to="/">Home</Link></li>
+                  <li><Link to="/Todos">Todos</Link></li>
+                  <li><Link to="/Increment">Increment</Link></li>
+                </ul>
+              </nav>
+
+                <Switch>
+                  <PrivateRoute path="/Todos">
+                      <Todos />
+                  </PrivateRoute>
+
+                  <Route path="/Increment">
+                      <Increment />
+                  </Route>
+
+                  <Route path="/ListObject">
+                      <ListObject />
+                  </Route>
+
+                  <Route path="/">
+                      <PrivatePages />
+                  </Route>
+                </Switch>
+          </div>
+        </Router>
+      )
+    }
+  }
+
+// function Header(props){
 //     return(
-//       <div className="App">
-//         <Header />
-//         <Content/>
-//         <Test/>
-//       </div>
+//         <div>
+//             <h1>{props.title}</h1>
+//         </div>
 //     )
-//   }
 // }
 
-function PrivatePage(){
-  return(
-    <div className="App">
-      <Header propertiku="Ini header menggunakan Props"/>
-      <Content />
-      <ListProps />
-      <Increment />
-      <Todos />
-      <Internal />
-      <ListArray />
-      <ListObject />
-      <UseBootstrap />
-      {/* <Test /> */}
-    </div>
-  )
+// import PrivatePage from './Pages/PrivatePage';
+// import GuestPage from './Pages/GuestPages';
+
+// function App(){
+//   const [isLoggedin] = useState(false);
+//   return(
+//     <div>
+//       { isLoggedin ? <PrivatePage />  : <GuestPage />}
+//     </div>
+//   )
+// }
+
+const fakeAuth = {
+  isAuthenticate : false,
+  Authenticated(cb) {
+    fakeAuth.isAuthenticate = true;
+    setTimeout(cb, 100); //fake Async
+  },
+  signOut(cb) {
+    fakeAuth.isAuthenticate = false;
+    setTimeout(cb, 100); //Logout
+  }
 }
 
-// class GuestPage extends Component{
-//   render(){
-//     return(
-//       <div className="App-header">
-//         <h1>Please Sign in</h1>
-//       </div>
-//     )
-//   }
-// }
-
-// class App extends Component{
-//   render(){
-//     const isLoggedin = true;
-//     if(isLoggedin){
-//       return <PrivatePage />
-//     }
-//     else{
-//       return <GuestPage />
-//     }
-//   }
-// }
-
-function GuestPage(){
+function PrivateRoute({ children, ...rest}){
   return(
-    <div className="App-header">
-      <h1>Please Sign in</h1>
-    </div>
-  )
-}
-
-function App(){
-  const [isLoggedin] = useState(true);
-  return(
-    <div>
-      { isLoggedin ? <PrivatePage />  : <GuestPage />}
-    </div>
+    <Route
+    {...rest}
+    render={({ location }) => 
+    fakeAuth.isAuthenticate ? (
+      children
+    ) : (
+      <Redirect to = {{pathname: "/login", state: {from: location}
+    }}
+    />
+    )
+  }
+  />
   )
 }
 
