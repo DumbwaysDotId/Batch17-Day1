@@ -8,6 +8,8 @@ import ListProps from './Pages/ListProps';
 import Increment from './Pages/Increment';
 import Todos from './Pages/Todos';
 import Internal from './Pages/Internal';
+import ListArray from './Pages/listArray';
+import ListObject from './Pages/listObject';
 
 // class App extends Component{
 //   render(){
@@ -30,6 +32,8 @@ function PrivatePage(){
       <Increment />
       <Todos />
       <Internal />
+      <ListArray />
+      <ListObject />
       {/* <Test /> */}
     </div>
   )
