@@ -6,6 +6,7 @@ import Content from './Components/Content';
 import Test from './Pages/Test';
 import ListProps from './Pages/ListProps';
 import Increment from './Pages/Increment';
+import Todos from './Pages/Todos';
 
 // class App extends Component{
 //   render(){
@@ -26,7 +27,8 @@ function App(){
       <Content />
       <ListProps />
       <Increment />
-      <Test />
+      <Todos />
+      {/* <Test /> */}
     </div>
   )
 }
