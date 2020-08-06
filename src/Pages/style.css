@@ -1,0 +1,15 @@
+.footer {
+  position: relative;
+  background-color: red;
+  height: 100px;
+}
+
+.footer .box {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 4rem;
+  width: 4rem;
+  background-color: grey;
+  margin-right: 1rem;
+}
