@@ -1,5 +1,7 @@
-import React, {Component, useState} from 'react';
-import '../App.css'
+import React, { Component, useState } from "react";
+import "../App.css";
+
+import { ThemeContext } from "../Context/ThemeContext";
 
 // class Increment extends Component{
 //     constructor(){
@@ -26,21 +28,22 @@ import '../App.css'
 //     }
 // }
 
-function Increment(){
-    const [counter, setCounter] = useState(100)
+function Increment() {
+  const [counter, setCounter] = useState(100);
 
-    return(
+  return (
+    <ThemeContext.Consumer>
+      {(warna) => (
         <div className="App-header">
-            <p>Click th button to increment ! !</p>
-                &nbsp;&nbsp;&nbsp;
-
-            <p>{counter}</p>
-
-                 &nbsp;&nbsp;&nbsp;
-
-            <button onClick={()=> setCounter(counter+100)}> Hit Me</ button>
+          <p>Click th button to increment ! ! {warna.title}</p>
+          &nbsp;&nbsp;&nbsp;
+          <p>{counter}</p>
+          &nbsp;&nbsp;&nbsp;
+          <button onClick={() => setCounter(counter + 100)}> Hit Me</button>
         </div>
-    )
+      )}
+    </ThemeContext.Consumer>
+  );
 }
 
-export default Increment
+export default Increment;
