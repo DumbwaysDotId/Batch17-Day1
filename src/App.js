@@ -18,6 +18,7 @@ import ListObject from "./Pages/listObject";
 import About from "./Pages/About";
 import Form from "./Pages/Form";
 import Detail from "./Pages/Details";
+import FetchTodos from "./Pages/FetchTodos";
 
 import { ThemeContext } from "./Context/ThemeContext";
 
@@ -43,6 +44,9 @@ class App extends Component {
                   <Link to="/">Home</Link>
                 </li>
                 <li>
+                  <Link to="/fetch-todos">Fetch Todos Axios</Link>
+                </li>
+                <li>
                   <Link to="/Todos">Todos</Link>
                 </li>
                 <li>
@@ -63,6 +67,8 @@ class App extends Component {
               <Route path="/form" component={Form} />
 
               <Route path="/details/:id" component={Detail} />
+
+              <Route path="/fetch-todos" component={FetchTodos} />
 
               <Route path="/Todos">
                 <Todos />
