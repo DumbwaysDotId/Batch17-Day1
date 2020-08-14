@@ -19,6 +19,9 @@ import About from "./Pages/About";
 import Form from "./Pages/Form";
 import Detail from "./Pages/Details";
 import FetchTodos from "./Pages/FetchTodos";
+import TodosReactQuery from "./Pages/TodosReactQuery";
+
+import Navbar from "./Components/Header";
 
 import { ThemeContext } from "./Context/ThemeContext";
 
@@ -38,28 +41,7 @@ class App extends Component {
       <ThemeContext.Provider value={themes}>
         <Router>
           <div className="App">
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/fetch-todos">Fetch Todos Axios</Link>
-                </li>
-                <li>
-                  <Link to="/Todos">Todos</Link>
-                </li>
-                <li>
-                  <Link to="/Increment">Increment</Link>
-                </li>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-                <li>
-                  <Link to="/form">Form</Link>
-                </li>
-              </ul>
-            </nav>
+            <Navbar />
 
             <Switch>
               <Route path="/about" component={About} />
@@ -69,6 +51,8 @@ class App extends Component {
               <Route path="/details/:id" component={Detail} />
 
               <Route path="/fetch-todos" component={FetchTodos} />
+
+              <Route path="/todos-react-query" component={TodosReactQuery} />
 
               <Route path="/Todos">
                 <Todos />
